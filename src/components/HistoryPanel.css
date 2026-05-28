@@ -1,0 +1,206 @@
+/* HistoryPanel.css */
+.hist-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hist-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hist-count-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hist-clear-btn {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  opacity: 0.6;
+}
+.hist-clear-btn:hover { opacity: 1; }
+
+.hist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 2px;
+}
+
+/* --- Card --- */
+.hist-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.hist-card:hover { border-color: var(--border-bright); }
+.hist-card.expanded { border-color: rgba(99,102,241,0.3); box-shadow: 0 0 12px rgba(99,102,241,0.08); }
+
+.hist-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.hist-card-header:hover { background: var(--bg-hover); }
+
+.hist-card-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hist-pct-badge {
+  min-width: 48px;
+  text-align: center;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.hist-pct-badge.good { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
+.hist-pct-badge.mid  { background: rgba(99,102,241,0.12); color: #6366f1; border: 1px solid rgba(99,102,241,0.2); }
+.hist-pct-badge.low  { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.2); }
+
+.hist-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hist-job-id {
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.hist-time {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.hist-card-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hist-nodes-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hist-chevron {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+  display: inline-block;
+}
+.hist-chevron.open { transform: rotate(90deg); }
+
+/* --- Card Body --- */
+.hist-card-body {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hist-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.hist-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+
+.hist-detail-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+
+.hist-detail-val {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* --- Sparkline --- */
+.hist-sparkline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hist-spark-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* --- Zones --- */
+.hist-zones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.hist-zone-chip {
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+.hist-zone-chip.zone-a { background: rgba(99,102,241,0.12); color: #6366f1; border: 1px solid rgba(99,102,241,0.2); }
+.hist-zone-chip.zone-b { background: rgba(6,182,212,0.12); color: #06b6d4; border: 1px solid rgba(6,182,212,0.2); }
+
+/* --- Restore button --- */
+.hist-restore-btn {
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 7px;
+  justify-content: center;
+}
+
+/* --- Empty state --- */
+.hist-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  gap: 6px;
+  opacity: 0.6;
+}
+.hist-empty-icon { font-size: 2rem; }
+.hist-empty-text { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }
+.hist-empty-sub  { font-size: 0.72rem; color: var(--text-muted); }

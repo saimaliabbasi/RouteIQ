@@ -1,0 +1,122 @@
+/* MetricsCard.css */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 1100px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Card ── */
+.metric-card {
+  position: relative;
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.metric-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+/* Accent top border */
+.metric-accent-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 99px 99px 0 0;
+  opacity: 0.8;
+}
+
+/* Background glow blob */
+.metric-active::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.metric-icon { font-size: 0.9rem; flex-shrink: 0; }
+
+.metric-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.metric-badge {
+  font-size: 0.6rem !important;
+  padding: 2px 7px !important;
+}
+
+.metric-delta {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+}
+.metric-delta.delta-pos { background: rgba(34,197,94,0.1); color: #22c55e; }
+.metric-delta.delta-neg { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+/* ── Value ── */
+.metric-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.metric-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.metric-value.muted { color: var(--text-muted) !important; }
+
+.metric-unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* ── Progress bar ── */
+.metric-bar-wrap {
+  height: 3px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.metric-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Sub text ── */
+.metric-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

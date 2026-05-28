@@ -1,0 +1,111 @@
+.left-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.panel-section {
+  padding: 4px 0 12px;
+}
+
+/* Network stats */
+.net-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.net-stat {
+  padding: 10px;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.stat-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Add edge form */
+.add-edge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.add-error {
+  padding: 6px 10px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius-sm);
+  color: var(--accent-danger);
+  font-size: 0.72rem;
+}
+
+/* Edge list */
+.edge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  flex: 1;
+  max-height: 220px;
+  padding-right: 2px;
+}
+
+.edge-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition);
+}
+.edge-item:hover { border-color: var(--border-bright); }
+
+.edge-route {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.edge-node {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.edge-arrow { color: var(--text-muted); font-size: 0.7rem; }
+
+.edge-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.edge-weight {
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+.edge-del {
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  border-radius: 4px;
+  line-height: 1.4;
+}
